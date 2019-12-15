@@ -1,17 +1,24 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{Border: ($mq === 'mobile+')}" >
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <ContentList :title='data.title' :content='data.content' />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import ContentList from './components/ContentList.vue'
+import data from './data/fakeContent.json'
 
 export default {
   name: 'app',
+  data(){
+    return {data:data}
+  },
   components: {
-    HelloWorld
+    // HelloWorld
+    ContentList
   }
 }
 </script>
@@ -23,6 +30,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.Border {
+  /* border: 0 5vw; */
 }
 </style>
